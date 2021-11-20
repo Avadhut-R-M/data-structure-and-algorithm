@@ -1,5 +1,6 @@
 """
 Question - Given a Binary Tree, print all diagonal elements in a binary tree belonging to the same line.
+link - https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/
 
 example -
         tree -                8
