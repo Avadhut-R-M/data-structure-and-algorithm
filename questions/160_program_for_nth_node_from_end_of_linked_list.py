@@ -32,9 +32,10 @@ def getNthFromLast(head,n):
         head = head.next
     return(head.data)
 
-a = Node(1)
-a.next = Node(2)
-a.next.next = Node(3)
-a.next.next.next = Node(4)
+if __name__ == "__main__":
+    a = Node(1)
+    a.next = Node(2)
+    a.next.next = Node(3)
+    a.next.next.next = Node(4)
 
-print(getNthFromLast(a,2))
+    print(getNthFromLast(a,2))
