@@ -25,6 +25,7 @@ class Solution:
                 max_profit = i-pick
         return max_profit
 
-solution = Solution()
-inp = [7,6,4,3,2]
-print(solution.maxProfit(inp))
+if __name__ == "__main__":
+    solution = Solution()
+    inp = [7,6,4,3,2]
+    print(solution.maxProfit(inp))
