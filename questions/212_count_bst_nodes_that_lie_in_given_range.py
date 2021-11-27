@@ -1,12 +1,11 @@
 """
-Question - Given a Binary search tree.
-            Your task is to complete the function which will return the Kth
-l           argest element without doing any modification in Binary Search Tree.
+Question - Given a Binary Search Tree (BST) and a range l-h(inclusive),
+            count the number of nodes in the BST that lie in the given range.
 
-link - https://practice.geeksforgeeks.org/problems/kth-largest-element-in-bst/1#
+link - https://practice.geeksforgeeks.org/problems/count-bst-nodes-that-lie-in-a-given-range/1
 
 example -
-           k = 2
+            l = 3, h = 5
 
                              5
                             /
@@ -14,7 +13,7 @@ example -
                         /  \
                        2    4
 
-        answer -  4
+        answer -  2
 """
 
 # class to create node of the tree
@@ -102,21 +101,18 @@ class Node:
         return str("\n" + "\n".join((line.rstrip() for line in lines)))
 
 
-class Solution:
-    def kthLargestUtil(self,root, k, out):
-        if root is None:
-            return
-        self.kthLargestUtil(root.right, k, out)
-        out[0] += 1
-        if out[0] == k:
-            out.append(root.data)
-            return
-        self.kthLargestUtil(root.left, k ,out)
+def getCount(root,low,high):
+    if root is None:
+        return 0
+    if high >= root.data >= low:
+        return 1+ getCount(root.left, low, high) + getCount(root.right, low, high)
 
-    def kthLargest(self,root, k):
-        out = [0]
-        self.kthLargestUtil(root,k,out)
-        return out[1]
+    elif root.data < low:
+        return getCount(root.right, low, high)
+
+    else:
+        return getCount(root.left, low, high)
+
 
 
 
@@ -127,9 +123,9 @@ if __name__ == "__main__":
     node.insert(10)
     node.insert(9)
     node.insert(14)
-    node.insert(10)
+    node.insert(11)
     print(node)
 
-    solution = Solution()
-    print(solution.kthLargest(node,2))
+
+    print(getCount(node,3, 10))
 
