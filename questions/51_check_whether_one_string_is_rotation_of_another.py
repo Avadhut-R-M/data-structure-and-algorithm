@@ -10,6 +10,8 @@ example -
 """
 
 def isSame(string1, string2):
+    if len(string2) != len(string1):
+        return False
     string1 = string1 + string1
     return True if (string1.count(string2)) else False
 
