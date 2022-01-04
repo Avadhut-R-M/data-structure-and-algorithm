@@ -24,7 +24,6 @@ class Graph:
 
     def color_node(self, v, adj):
         colored = [-1] * v
-        dfs_visited = {}
         for i in range(v):
             if colored[i] == -1:
                 if not self.color_node_util(colored,i,adj,0):
